@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface Resident {
   id?: string;
@@ -14,12 +15,13 @@ export interface Resident {
   providedIn: 'root'
 })
 export class ResidentService {
-  private baseUrl = 'http://<YOUR-GATEWAY-IP>/resident/api/users'; // Replace with actual GKE gateway IP
+  private baseUrl = environment.residentServiceBaseUrl;
 
   constructor(private http: HttpClient) {}
 
   getAllResidents(): Observable<Resident[]> {
-    return this.http.get<Resident[]>(`${this.baseUrl}/all`);
+    //return this.http.get<Resident[]>(`${this.baseUrl}/api/users/getAllUsers`);  http://localhost:9090/api/users/getAllUsers
+    return this.http.get<Resident[]>(`${this.baseUrl}/api/users/getAllUsers`);
   }
 
   registerResident(resident: Resident): Observable<Resident> {

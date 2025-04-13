@@ -1,0 +1,26 @@
+<h2>👥 Resident List</h2>
+
+<table class="resident-table" *ngIf="residents.length > 0; else noData">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Flat Number</th>
+    <th>Phone</th>
+    <th>Email</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let resident of residents; index as i">
+    <td>{{ i + 1 }}</td>
+    <td>{{ resident.name }}</td>
+    <td>{{ resident.flatNumber }}</td>
+    <td>{{ resident.phone }}</td>
+    <td>{{ resident.email }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<ng-template #noData>
+  <p>No residents found.</p>
+</ng-template>
