@@ -1,16 +1,29 @@
-<header style="background-color: #3f51b5; color: white; padding: 10px;">
-  <h1 style="margin: 0;">Riddhi's Golden Nest Society</h1>
-</header>
+<!-- Only show header/sidebar/footer if not on login page -->
+<ng-container *ngIf="!isLoginPage()">
+  <a *ngIf="authService.isAuthenticated()" (click)="authService.logout()" style="float: right; padding: 10px;">
+    🔓 Logout
+  </a>
 
-<div style="display: flex; height: calc(100vh - 100px);">
-  <app-sidebar></app-sidebar>
-  <main style="padding: 1rem; flex: 1;">
-    <router-outlet></router-outlet>
-  </main>
-</div>
+  <!-- HEADER -->
+  <header style="background-color: #3f51b5; color: white; padding: 10px;">
+    <h1 style="margin: 0;">🏡 Society Management Portal</h1>
+  </header>
 
-<footer style="text-align: center; padding: 10px; background-color: #eee;">
-  Developed by <strong>Shivaprasad Reddy Dharmala</strong> |
-  📧 <a href="mailto:shivaprasadreddy.dharmala@gmail.com">shivaprasadreddy.dharmalagmail.com</a> |
-  📞 +91-XXXXXXXXXX
-</footer>
+  <!-- LAYOUT -->
+  <div style="display: flex; min-height: calc(100vh - 60px);">
+    <app-sidebar></app-sidebar>
+
+    <main style="flex-grow: 1; padding: 20px;">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer style="background-color: #eee; padding: 10px; text-align: center;">
+    Developed by <strong>Shivaprasad Reddy Dharmala</strong> |
+    📧 <a href="mailto:shivaprasadreddy.dharmala@gmail.com">shivaprasadreddy.dharmalagmail.com</a>
+  </footer>
+</ng-container>
+
+<!-- Show only login content -->
+<router-outlet *ngIf="isLoginPage()"></router-outlet>
