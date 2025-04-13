@@ -1,0 +1,53 @@
+<div style="max-width: 420px; margin: 80px auto; padding: 30px; border-radius: 12px; background-color: #f9f9f9; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); font-family: 'Segoe UI', sans-serif;">
+  <h2 style="text-align: center; color: #3f51b5; margin-bottom: 30px;">🔐 Society Login</h2>
+
+  <!-- REGION -->
+  <div style="margin-bottom: 20px;">
+    <label style="display: block; font-weight: 600; margin-bottom: 6px;">Region</label>
+    <div style="position: relative;">
+      <select [(ngModel)]="region" style="appearance: none; width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid #ccc; background-color: #fff; font-size: 15px;">
+        <option value="" disabled selected>Select a region</option>
+        <option value="HYD">Hyderabad</option>
+        <option value="BNGL">Bangalore</option>
+        <option value="DELHI">Delhi</option>
+      </select>
+      <span style="position: absolute; top: 50%; right: 16px; transform: translateY(-50%); pointer-events: none;">▼</span>
+    </div>
+  </div>
+
+  <!-- SOCIETY -->
+  <div style="margin-bottom: 20px;">
+    <label style="display: block; font-weight: 600; margin-bottom: 6px;">Society Name</label>
+    <div style="position: relative;">
+      <select [(ngModel)]="society" style="appearance: none; width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid #ccc; background-color: #fff; font-size: 15px;">
+        <option value="" disabled selected>Select a society</option>
+        <option value="RGN">Riddhi's Golden Nest</option>
+        <option value="RS">Riddhi's Springs</option>
+      </select>
+      <span style="position: absolute; top: 50%; right: 16px; transform: translateY(-50%); pointer-events: none;">▼</span>
+    </div>
+  </div>
+
+  <!-- USERNAME -->
+  <div style="margin-bottom: 20px;">
+    <label style="display: block; font-weight: 600; margin-bottom: 6px;">Username</label>
+    <input type="text" [(ngModel)]="username" placeholder="admin"
+           style="width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid #ccc; background-color: #fff; font-size: 15px;" />
+  </div>
+
+  <!-- PASSWORD -->
+  <div style="margin-bottom: 25px;">
+    <label style="display: block; font-weight: 600; margin-bottom: 6px;">Password</label>
+    <input type="password" [(ngModel)]="password" placeholder="admin123"
+           style="width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid #ccc; background-color: #fff; font-size: 15px;" />
+  </div>
+
+  <!-- LOGIN BUTTON -->
+  <button (click)="login()"
+          style="width: 100%; padding: 14px; background: linear-gradient(45deg, #3f51b5, #5a6dee); color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer;">
+    Login
+  </button>
+
+  <!-- ERROR MESSAGE -->
+  <p *ngIf="error" style="color: red; text-align: center; margin-top: 18px; font-weight: 600;">{{ error }}</p>
+</div>
